@@ -7,6 +7,7 @@ import {
   HttpParams,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ApiService } from '../service/api.service';
 
 @Component({
   selector: 'app-fiest-form',
@@ -18,7 +19,7 @@ export class FiestFormComponent implements OnInit {
   ageP: number = 0;
   naghiMamouli: string = '';
 
-  constructor(private _formBuilder: FormBuilder, private http: HttpClient) {}
+  constructor(private _formBuilder: FormBuilder, private api: ApiService) {}
 
   form: FormGroup = this._formBuilder.group({
     nameC: ['', Validators.required],
@@ -28,9 +29,7 @@ export class FiestFormComponent implements OnInit {
   ngOnInit(): void {}
 
   submit() {
-    let path: string =
-      'http://127.0.0.1:7777/helloV2/' + this.nameP + '/' + this.ageP;
-    this.http.get(path, { responseType: 'text' }).subscribe(
+    this.api.submit(this.nameP, this.ageP).subscribe(
       (data) => {
         this.naghiMamouli = data;
       },

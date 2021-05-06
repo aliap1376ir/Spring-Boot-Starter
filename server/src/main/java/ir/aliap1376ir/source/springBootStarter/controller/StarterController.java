@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(origins = "http://127.0.0.1:4200")
+@CrossOrigin(origins = {"http://192.168.1.40:4200", "http://127.0.0.1:4200"})
 public class StarterController {
 
     private Logger logger = LoggerFactory.getLogger(StarterController.class);
