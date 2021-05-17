@@ -9,11 +9,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './service/api.service';
+import { PersonComponent } from './person/person.component';
+import { PersonFormComponent } from './person/person-form/person-form.component';
+import { PersonListComponent } from './person/person-list/person-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FiestFormComponent
+    FiestFormComponent,
+    PersonComponent,
+    PersonFormComponent,
+    PersonListComponent
   ],
   imports: [
     BrowserModule,

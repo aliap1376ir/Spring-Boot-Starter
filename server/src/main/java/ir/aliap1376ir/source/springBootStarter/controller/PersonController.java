@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = {"http://192.168.1.40:4200", "http://127.0.0.1:4200"})
+@CrossOrigin(origins = {"http://192.168.1.40:4200", "http://192.168.1.27:4200", "http://127.0.0.1:4200"})
 public class PersonController {
 
     @Autowired
@@ -32,7 +32,7 @@ public class PersonController {
     }
 
     @GetMapping(path = "/api/person/all")
-    private List<Person> newPerson() {
+    private List<Person> allPeople() {
         return personDao.findAll();
     }
 

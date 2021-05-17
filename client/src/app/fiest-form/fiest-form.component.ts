@@ -37,5 +37,14 @@ export class FiestFormComponent implements OnInit {
         console.log(error);
       }
     );
+
+    this.api.helloPersonNameGetParameter(this.nameP).subscribe(
+      (data) => {
+        alert(data);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }
