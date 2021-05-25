@@ -12,6 +12,8 @@ import { ApiService } from './service/api.service';
 import { PersonComponent } from './person/person.component';
 import { PersonFormComponent } from './person/person-form/person-form.component';
 import { PersonListComponent } from './person/person-list/person-list.component';
+import { WebsocketService } from './service/websocket.service';
+import { ChatRoomComponent } from './chat-room/chat-room.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { PersonListComponent } from './person/person-list/person-list.component'
     FiestFormComponent,
     PersonComponent,
     PersonFormComponent,
-    PersonListComponent
+    PersonListComponent,
+    ChatRoomComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,7 @@ import { PersonListComponent } from './person/person-list/person-list.component'
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [ApiService],
-  bootstrap: [AppComponent]
+  providers: [ApiService, WebsocketService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

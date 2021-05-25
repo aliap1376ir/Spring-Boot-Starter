@@ -33,7 +33,22 @@ public class PersonController {
 
     @GetMapping(path = "/api/person/all")
     private List<Person> allPeople() {
-        return personDao.findAll();
+        return personDao.findByOrderById();
+    }
+
+    @GetMapping(path = "/api/person/find")
+    private List<Person> findPeople(@RequestParam("query") String query) {
+        return personDao.findByUsernameContaining(query);
+    }
+
+    @PostMapping(path = "/api/person/edit")
+    private Person editPerson(@RequestBody Person person) {
+        Person personDb = personDao.findByUsername(person.getUsername());
+        if (personDb != null) {
+            person.setId(personDb.getId());
+            return personDao.save(person);
+        }
+        return null;
     }
 
 }

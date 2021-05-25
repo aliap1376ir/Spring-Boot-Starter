@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ChatRoomComponent } from './chat-room/chat-room.component';
 import { FiestFormComponent } from './fiest-form/fiest-form.component';
 import { PersonComponent } from './person/person.component';
 
 const routes: Routes = [
+  { path: 'chat', component: ChatRoomComponent },
   { path: 'person', component: PersonComponent },
   { path: '', component: FiestFormComponent },
 ];
