@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
+import { Message } from './models';
 
 @Injectable({
   providedIn: 'root',
@@ -17,14 +18,15 @@ export class WebsocketService {
 
   myWebSocket: any = null;
 
-  private newMessages = new Subject<String>();
+  // newMessages = new Subject<string>();
+  newMessages = new Subject<Message>();
 
   // newMessagesRecived = this.newMessages.asObservable();
 
   public connect(username: string): void {
     this.myWebSocket = webSocket(this.url + '/' + username);
     this.myWebSocket.asObservable().subscribe(
-      (newMessage: any) => {
+      (newMessage: Message) => {
         console.log(newMessage);
         this.newMessages.next(newMessage);
       },
@@ -33,7 +35,6 @@ export class WebsocketService {
       },
       () => {}
     );
-    // this.myWebSocket.next({ message: 'some message' });
   }
 
   public discounect() {
@@ -41,6 +42,6 @@ export class WebsocketService {
   }
 
   public sendMessage(message: string) {
-    this.myWebSocket.sendData(message);
+    this.myWebSocket.next(message);
   }
 }

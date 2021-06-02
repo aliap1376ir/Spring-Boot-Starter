@@ -28,3 +28,12 @@
     Send
   </button>
 </form>
+<div>
+  <!-- [ngClass]="message.split(':')[0] == username ? 'my-message' : 'their-message'" -->
+  <div
+    [ngClass]="message.userName == username ? 'my-message' : 'their-message'"
+    *ngFor="let message of messages"
+  >
+    {{ message.message }}
+  </div>
+</div>

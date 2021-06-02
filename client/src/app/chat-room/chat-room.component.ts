@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Message } from '../service/models';
 import { WebsocketService } from '../service/websocket.service';
 
 @Component({
@@ -10,6 +11,8 @@ import { WebsocketService } from '../service/websocket.service';
 export class ChatRoomComponent implements OnInit {
   username: string = '';
   message: string = '';
+  // messages: string[] = [];
+  messages: Message[] = [];
 
   constructor(
     private webSocket: WebsocketService,
@@ -28,11 +31,17 @@ export class ChatRoomComponent implements OnInit {
 
   connect() {
     this.webSocket.connect(this.username);
+    this.webSocket.newMessages.subscribe((newMessage) => {
+      this.messages.push(newMessage);
+    });
   }
 
   sendMessage() {
-    this.webSocket.myWebSocket.sendData(this.username + ':' + this.message);
-    // this.webSocket.sendMessage(this.username + ':' + this.message);
+    // this.webSocket.myWebSocket.next(this.username + ':' + this.message);
+    this.webSocket.myWebSocket.next({
+      userName: this.username,
+      message: this.message,
+    });
     this.message = '';
   }
 }
