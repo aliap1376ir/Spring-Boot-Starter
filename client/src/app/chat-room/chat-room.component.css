@@ -7,3 +7,26 @@
   color: #000;
   background-color: green;
 }
+
+.my-message, .their-message{
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 728px){
+  .my-message, .their-message{
+     max-width: 100%;
+  }
+}
+
+@media (min-width: 728px){
+  .my-message, .their-message{
+    max-width: 50%;
+    width: fit-content;
+   }
+  .their-message{
+    margin-left: auto;
+    margin-right: 0;
+    text-align: right;
+  }
+
+}

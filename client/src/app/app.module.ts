@@ -14,6 +14,7 @@ import { PersonFormComponent } from './person/person-form/person-form.component'
 import { PersonListComponent } from './person/person-list/person-list.component';
 import { WebsocketService } from './service/websocket.service';
 import { ChatRoomComponent } from './chat-room/chat-room.component';
+import { CcsExampleComponent } from './ccs-example/ccs-example.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ChatRoomComponent } from './chat-room/chat-room.component';
     PersonFormComponent,
     PersonListComponent,
     ChatRoomComponent,
+    CcsExampleComponent,
   ],
   imports: [
     BrowserModule,

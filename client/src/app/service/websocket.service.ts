@@ -7,7 +7,8 @@ import { Message } from './models';
   providedIn: 'root',
 })
 export class WebsocketService {
-  urlHost = '192.168.1.27'; //local host
+  urlHost = '127.0.0.1'; //local host
+  // urlHost = '192.168.1.27'; //local host
   urlPort = '7777';
   urlProtocol = 'ws';
 

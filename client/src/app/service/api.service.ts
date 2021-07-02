@@ -9,9 +9,9 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   urlProtocol = 'http';
-  // urlHost = '127.0.0.1'; //local host
+  urlHost = '127.0.0.1'; //local host
   // urlHost = '192.168.1.40'; //local host
-  urlHost = '192.168.1.27'; //local host
+  // urlHost = '192.168.1.27'; //local host
   urlPort = '7777';
 
   url = this.urlProtocol + '://' + this.urlHost + ':' + this.urlPort + '/';
